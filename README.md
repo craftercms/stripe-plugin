@@ -110,28 +110,28 @@ Take note of the id value for the products you just created as you will need thi
 
 Create price for Basic product, substituting `ID_OF_BASIC_PRODUCT` with the appropriate product Id:
 ```sh
-./stripe prices create
-  -d "product=ID_OF_BASIC_PRODUCT"
-  -d "unit_amount=1200"
-  -d "currency=usd"
+./stripe prices create \
+  -d "product=ID_OF_BASIC_PRODUCT" \
+  -d "unit_amount=1200" \
+  -d "currency=usd" \
   -d "recurring[interval]=month"
 ```
 
 Create price for Premium product, substituting `ID_OF_PREMIUM_PRODUCT` with the appropriate product Id:
 ```sh
-./stripe prices create
-  -d "product=ID_OF_PREMIUM_PRODUCT"
-  -d "unit_amount=1800"
-  -d "currency=usd"
+./stripe prices create \
+  -d "product=ID_OF_PREMIUM_PRODUCT" \
+  -d "unit_amount=1800" \
+  -d "currency=usd" \
   -d "recurring[interval]=month"
 ```
 
 Create price for Enterprise product, substituting `ID_OF_ENTERPRISE_PRODUCT` with the appropriate product Id:
 ```sh
-./stripe prices create
-  -d "product=ID_OF_ENTERPRISE_PRODUCT"
-  -d "unit_amount=25000"
-  -d "currency=usd"
+./stripe prices create \
+  -d "product=ID_OF_ENTERPRISE_PRODUCT" \
+  -d "unit_amount=25000" \
+  -d "currency=usd" \
   -d "recurring[interval]=year"
 ```
 
