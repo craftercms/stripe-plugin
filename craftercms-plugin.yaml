@@ -1,0 +1,53 @@
+# This file describes a plugin for use in CrafterCMS
+
+# The version of the format for this file
+descriptorVersion: 2
+
+# Describe the plugin
+plugin:
+  type: site
+  id: org.craftercms.plugin.stripe
+  name: stripe
+  tags:
+    - stripe
+  version:
+    major: 1
+    minor: 0
+    patch: 0
+  description: A plugin that allows you use stripe API to charge a subscription
+  documentation: "https://raw.githubusercontent.com/phuongnq/craftercms-plugin-stripe/main/README.md"
+  website:
+    name: stripe
+    url: https://github.com/phuongnq/craftercms-plugin-stripe
+  media:
+    screenshots:
+      - title: CrafterCMS
+        description: CrafterCMS Plugin for stripe
+        url: "https://raw.githubusercontent.com/phuongnq/craftercms-plugin-stripe/main/.crafter/logo.webp"
+  developer:
+    company:
+      name: Phil Nguyen
+      email: phil.nguyen@craftercms.com
+      url: https://github.com/phuongnq
+  build:
+    id: 8470f83e-d571-4c98-840b-ab8248f85af9
+    date: 2023-03-07T00:00:00Z
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  crafterCmsVersions:
+    - major: 4
+      minor: 0
+      patch: 0
+    - major: 4
+      minor: 0
+      patch: 1
+    - major: 4
+      minor: 0
+      patch: 2
+    - major: 4
+      minor: 0
+      patch: 3
+  crafterCmsEditions:
+    - community
+    - enterprise
