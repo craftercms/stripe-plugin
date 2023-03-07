@@ -1,6 +1,8 @@
 # CrafterCMS Stripe Plugin
 
-A Stripe plugin which with recurring to subscribe to a service.
+A Stripe plugin which uses checkout for subscriptions. This plugin is a modified version of [stripe-samples/checkout-single-subscription](https://github.com/stripe-samples/checkout-single-subscription) for CrafterCMS Studio.
+
+A sample CrafterCMS Project uses this plugin: https://github.com/phuongnq/craftercms-stripe-sample-project
 
 # Installation
 
@@ -171,7 +173,7 @@ where:
 * enterprisePriceId: enterprisePrice ID
 * callbackDomain: Callback domain of your application
 
-**3. Open your plans page and try subscribing a plan*
+**3. Open your plans page and try subscribing a plan**
 
 ![Stripe Subscribe](/stripe_subscribe.png)
 
