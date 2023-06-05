@@ -15,15 +15,15 @@ import groovy.util.logging.Slf4j
 
 @Slf4j
 class DefaultFormHandler implements FormHandler {
-    def handle(params, request, response, siteConfig, siteItemService) {
-        Stripe.apiKey = siteConfig.getString('stripe.secretKey')
+    def handle(params, request, response, pluginConfig, siteItemService) {
+        Stripe.apiKey = pluginConfig.getString('secretKey')
         Stripe.setAppInfo(
-            'craftercms-plugin-stripe',
+            'stripe-plugin',
             '1.0.0',
-            'https://github.com/phuongnq/craftercms-plugin-stripe'
+            'https://github.com/craftercms/stripe-plugin'
         )
 
-        def domain = siteConfig.getString('stripe.callbackDomain')
+        def domain = pluginConfig.getString('callbackDomain')
         SessionCreateParams sessionParams = new SessionCreateParams.Builder()
             .setSuccessUrl(domain + '/plugins/org/craftercms/plugin/stripe/success.ftl?session_id={CHECKOUT_SESSION_ID}')
             .setCancelUrl(domain + '/plugins/org/craftercms/plugin/stripe/canceled.ftl')

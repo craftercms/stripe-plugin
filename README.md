@@ -8,30 +8,49 @@ A sample CrafterCMS Project uses this plugin: https://github.com/phuongnq/crafte
 
 1. Install the plugin via Studio's Plugin Management UI under `Site Tools` > `Plugin Management`
 
-   OR You can also install this plugin by cloning this repository and using the Studio API.
+    You will need the following information:
 
-    1a. Create a Studio JWT Token.
+    * publishableKey: Stripe [publishable key](https://stripe.com/docs/keys#obtain-api-keys). Example: `${enc:CCE-V1#bUhsL6BI...}`
 
-    1b. Execute the following CURL command a terminal
+    * secretKey: Stripe [secret key](https://stripe.com/docs/keys#obtain-api-keys). Example: `${enc:CCE-V1#z48hAvk...}`
 
-    ```bash
-    curl --location --request POST 'http://SERVER_AND_PORT/studio/api/2/marketplace/copy' \
-    --header 'Authorization: Bearer THE_JWT_TOKEN_FOR_STUDIO' \
-    --header 'Content-Type: application/json' \
-    --data-raw '{
-      "siteId": "YOUR-PROJECT-ID",
-      "path": "THE_ABSOLUTEL_FILE_SYSTEM_PATH_TO_THIS_REPO",
-      "parameters": { }
-    }
-    ```
+    * callbackDomain: Callback domain of your application. Example: `http://localhost:8080`
+
+    OR You can also install this plugin by cloning this repository and using the Studio API.
+
+      1. Create a Studio JWT Token.
+
+      2. Execute the following CURL command a terminal
+
+      ```bash
+      curl --location --request POST 'http://SERVER_AND_PORT/studio/api/2/marketplace/copy' \
+      --header 'Authorization: Bearer THE_JWT_TOKEN_FOR_STUDIO' \
+      --header 'Content-Type: application/json' \
+      --data-raw '{
+        "siteId": "YOUR-PROJECT-ID",
+        "path": "THE_ABSOLUTEL_FILE_SYSTEM_PATH_TO_THIS_REPO",
+        "parameters": { }
+      }
+      ```
 
     OR You can aslo install this plugin by cloning this repository and using [Crafter CLI Commands](https://docs.craftercms.org/en/4.0/new-ia/reference/devcontentops-toolkit/copy-plugin.html)
 
-Values starting with `${enc:...}` are encrypted text using [CrafterCMS Encryption Tool](https://docs.craftercms.org/en/4.0/system-administrators/activities/authoring/main-menu-encryption-tool.html#encryption-tool)
+     ```bash
+    ./crafter-cli copy-plugin -e local -s PROJECT_ID --path /PLUGIN_PATH/stripe-plugin \
+      --param publishableKey='${enc:CCE-V1#bUhsL6BI...}' \
+      --param secretKey='${enc:CCE-V1#z48hAvk...}' \
+      --param callbackDomain='http://localhost:8080'
+    ```
+
+*Note: Values starting with `${enc:...}` are encrypted text using [CrafterCMS Encryption Tool](https://docs.craftercms.org/en/4.0/system-administrators/activities/authoring/main-menu-encryption-tool.html#encryption-tool)*
 
 # Using Checkout for subscriptions
 
 **1. Create a new Stripe Prices Page**
+
+* Page URL: `/plans`
+* Page Name: `Plans`
+* Heading: `Choose a CrafterCMS plan`
 
 ![Stripe Page](/stripe_prices_page.png)
 
@@ -41,20 +60,20 @@ Enter your prices plans. For example, by default the plugin has 3 plans: `basicP
     * Title: Starter
     * Thumbnail: /static-assets/plugins/org/craftercms/plugin/stripe/img/starter.png
     * Price: $12
-    * Price Name: basicPrice (**Note: Price name is fixed to retrieve from server API `delivery/scripts/rest/plugins/org/craftercms/plugin/stripe/config.get.groovy`)
-    * recurring: month
+    * Price Id: Price Id from step 2. Example: `price_1Mi...`
+    * Recurring: month
 * proPrice:
     * Title: Professional
     * Thumbnail: /static-assets/plugins/org/craftercms/plugin/stripe/img/professional.png
     * Price: $18
-    * Price Name: proPrice (**Note: Price name is fixed to retrieve from server API `delivery/scripts/rest/plugins/org/craftercms/plugin/stripe/config.get.groovy`)
-    * recurring: month
+    * Price Id: Price Id from step 2. Example: `price_1Mi...`
+    * Recurring: month
 * enterprisePrice:
     * Title: Enterprise
     * Thumbnail: /static-assets/plugins/org/craftercms/plugin/stripe/img/enterprise.webp
     * Price: $250
-    * Price Name: enterprisePrice (**Note: Price name is fixed to retrieve from server API `delivery/scripts/rest/plugins/org/craftercms/plugin/stripe/config.get.groovy`)
-    * recurring: year
+    * Price Id: Price Id from step 2. Example: `price_1Mi...`
+    * Recurring: year
 
 ![Stripe Page Input](/stripe_prices_page_input.png)
 
@@ -143,35 +162,6 @@ Create price for Enterprise product, substituting `ID_OF_ENTERPRISE_PRODUCT` wit
 **Using the Dashboard**
 
 You can create Products and Prices [in the dashboard](https://dashboard.stripe.com/products). Create three recurring Prices to run this sample.
-
-**Update your site-config.xml**
-
-From Studio UI, open *Project Tools* > *Configuration* > *Engine Project Configuration*, Add your Stripe credentials and account information to `site-config.xml`:
-
-```xml
-<site>
-    <version>4.0.1</version>
-    <stripe>
-      <publishableKey>${enc:CCE-V1#bUhsL6BI...}</publishableKey>
-      <secretKey>${enc:CCE-V1#z48hAvk...}</secretKey>
-      <webhookSecret>${enc:CCE-V1#sO73Bk+b...}</webhookSecret>
-      <basicPriceId>price_1Mi...</basicPriceId>
-      <proPriceId>price_1Mi...</proPriceId>
-      <enterprisePriceId>price_1Mi...</enterprisePriceId>
-      <callbackDomain>http://localhost:8080</callbackDomain>
-    </stripe>
-</site>
-```
-
-where:
-
-* publishableKey: Stripe [publishable key](https://stripe.com/docs/keys#obtain-api-keys)
-* secretKey: Stripe [secret key](https://stripe.com/docs/keys#obtain-api-keys)
-* webhookSecret (optional): Webhook Secret
-* basicPriceId: basicPrice ID
-* proPriceId: proPrice ID
-* enterprisePriceId: enterprisePrice ID
-* callbackDomain: Callback domain of your application
 
 **3. Open your plans page and try subscribing a plan**
 

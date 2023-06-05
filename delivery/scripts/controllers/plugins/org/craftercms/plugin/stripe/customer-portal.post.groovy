@@ -4,9 +4,9 @@
 
 import com.stripe.model.checkout.Session
 
-Session checkoutSession = Session.retrieve(request.queryParams('sessionId'))
+Session checkoutSession = Session.retrieve(request.getParameter('sessionId'))
 String customer = checkoutSession.getCustomer()
-String domainUrl = siteConfig.getString('stripe.callbackDomain')
+String domainUrl = pluginConfig.getString('callbackDomain')
 
 com.stripe.param.billingportal.SessionCreateParams params = new com.stripe.param.billingportal.SessionCreateParams.Builder()
     .setReturnUrl(domainUrl)
