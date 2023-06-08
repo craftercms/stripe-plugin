@@ -352,9 +352,9 @@
 				</field>
 				<field>
 					<type>input</type>
-					<id>priceName_s</id>
+					<id>priceId_s</id>
 					<iceId></iceId>
-					<title>Price Name</title>
+					<title>Price Id</title>
 					<description></description>
 					<defaultValue></defaultValue>
 					<help></help>
@@ -402,7 +402,7 @@
 					<type>input</type>
 					<id>recurring_s</id>
 					<iceId></iceId>
-					<title>recurring</title>
+					<title>Recurring</title>
 					<description></description>
 					<defaultValue>month</defaultValue>
 					<help></help>

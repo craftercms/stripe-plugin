@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/static-assets/plugins/org/craftercms/plugin/stripe/css/global.css" />
     <!-- Load Stripe.js on your website. -->
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="/static-assets/plugins/org/craftercms/plugin/stripe/js/script.js" defer></script>
     <@crafter.head/>
   </head>
 
@@ -32,7 +31,7 @@
             item, index
           >
             <form action="/plugins/org/craftercms/plugin/stripe/create-checkout-session" method="POST">
-              <input type="hidden" id="${item.priceName_s}" name="priceId">
+              <input type="hidden" id="${item.priceId_s}" name="priceId" value="${item.priceId_s}">
               <@crafter.img
                 $field="plans_o.thumbnail_s"
                 $index="${index}"

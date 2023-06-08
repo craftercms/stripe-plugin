@@ -11,4 +11,4 @@ if (!handler) {
     handler = new DefaultFormHandler()
 }
 
-return handler.handle(params, request, response, siteConfig, siteItemService)
+return handler.handle(params, request, response, pluginConfig, siteItemService)
