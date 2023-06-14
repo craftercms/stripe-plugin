@@ -13,7 +13,7 @@ plugin:
   version:
     major: 1
     minor: 0
-    patch: 3
+    patch: 4
   description: Stripe API integration that allows projects to charge a subscription
   documentation: "https://raw.githubusercontent.com/craftercms/stripe-plugin/main/README.md"
   website:
