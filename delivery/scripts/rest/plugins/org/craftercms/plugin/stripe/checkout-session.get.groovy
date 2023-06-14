@@ -13,7 +13,7 @@ if (!sessionId) {
     return [:]
 }
 
-Stripe.apiKey = siteConfig.getString('stripe.secretKey')
+Stripe.apiKey = pluginConfig.getString('secretKey')
 Stripe.setAppInfo(
     'craftercms-plugin-stripe',
     '1.0.0',

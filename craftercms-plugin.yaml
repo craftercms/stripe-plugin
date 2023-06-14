@@ -66,3 +66,13 @@ plugin:
   crafterCmsEditions:
     - community
     - enterprise
+  parameters:
+    - label: Publishable key
+      name: publishableKey
+      description: Stripe Publishable key
+    - label: Secret key
+      name: secretKey
+      description: Stripe secret key
+    - label: Callback domain
+      name: callbackDomain
+      description: Callback domain of your application
