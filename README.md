@@ -52,7 +52,7 @@ A sample CrafterCMS Project uses this plugin: https://github.com/phuongnq/crafte
 * Page Name: `Plans`
 * Heading: `Choose a CrafterCMS plan`
 
-![Stripe Page](/stripe_prices_page.png)
+![Stripe Page](https://raw.githubusercontent.com/jvega190/stripe-plugin/refs/heads/main/stripe_prices_page.png)
 
 Enter your prices plans. For example, by default the plugin has 3 plans: `basicPrice`, `proPrice`, `enterprisePrice`.
 
@@ -75,11 +75,11 @@ Enter your prices plans. For example, by default the plugin has 3 plans: `basicP
     * Price Id: Price Id from step 2. Example: `price_1Mi...`
     * Recurring: year
 
-![Stripe Page Input](/stripe_prices_page_input.png)
+![Stripe Page Input](https://raw.githubusercontent.com/jvega190/stripe-plugin/refs/heads/main/stripe_prices_page_input.png)
 
 After created, you can alson use the [Experience Builder](https://docs.craftercms.org/en/4.0/developers/experience-builder.html) functionality to Edit the page.
 
-![Stripe Page Edit](/stripe_prices_page_edit.png)
+![Stripe Page Edit](https://raw.githubusercontent.com/jvega190/stripe-plugin/refs/heads/main/stripe_prices_page_edit.png)
 
 **2. Use the Stripe CLI to create equivalent products from step 1**
 
@@ -154,7 +154,7 @@ Create price for Enterprise product, substituting `ID_OF_ENTERPRISE_PRODUCT` wit
   -d "recurring[interval]=year"
 ```
 
-![Stripe CLI Commands](/stripe_cli_sample_commands.png)
+![Stripe CLI Commands](https://raw.githubusercontent.com/jvega190/stripe-plugin/refs/heads/main/stripe_cli_sample_commands.png)
 
   More Information: [Docs - Update your Products and Prices](https://stripe.com/docs/tax/checkout#product-and-price-setup)
 </details>
@@ -165,7 +165,7 @@ You can create Products and Prices [in the dashboard](https://dashboard.stripe.c
 
 **3. Open your plans page and try subscribing a plan**
 
-![Stripe Subscribe](/stripe_subscribe.png)
+![Stripe Subscribe](https://raw.githubusercontent.com/jvega190/stripe-plugin/refs/heads/main/stripe_subscribe.png)
 
 
 
